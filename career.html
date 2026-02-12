@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Careers | Raudranex space technologies</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/images/IconFav.svg">
+
+    <!-- Three.js -->
+    <script src="assets/js/libraries/three.min.js"></script>
+
+    <!-- Animation Libraries -->
+    <script src="assets/js/libraries/gsap.min.js" defer></script>
+    <script src="assets/js/libraries/ScrollTrigger.min.js" defer></script>
+
+    <!-- Starfield Scene -->
+    <script src="assets/js/starfield-scene.js" defer></script>
+
+    <!-- Main JavaScript File -->
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/transitions.js" defer></script>
+
+    <!-- Hover effects for position cards -->
+    <style>
+        .position-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 219, 187, 0.6);
+        }
+        .position-button:hover {
+            background: #4a4a4a !important;
+        }
+
+        /* Responsive Design for Career Page */
+        @media (max-width: 1024px) {
+            main {
+                padding-top: 100px !important;
+            }
+
+            #career-content h1 {
+                font-size: 2.8rem !important;
+            }
+
+            #career-content > p {
+                font-size: 1.1rem !important;
+            }
+
+            #career-content h2 {
+                font-size: 2rem !important;
+            }
+
+            #career-content > div:nth-child(3) {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                background-color: rgba(5, 5, 5, 0.95) !important;
+            }
+
+            main {
+                padding-top: 140px !important;
+                padding-bottom: 2rem !important;
+            }
+
+            #career-content {
+                padding: 0 1.5rem !important;
+            }
+
+            #career-content h1 {
+                font-size: 2.2rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            #career-content > p {
+                font-size: 1.05rem !important;
+                margin-bottom: 3rem !important;
+            }
+
+            #career-content h2 {
+                font-size: 1.8rem !important;
+                margin-bottom: 2rem !important;
+            }
+
+            #career-content > div:nth-child(3) {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+                margin-bottom: 3rem !important;
+            }
+
+            .position-card h3 {
+                font-size: 1.2rem !important;
+            }
+
+            #career-content > div:last-child {
+                padding: 1.5rem !important;
+            }
+
+            #career-content > div:last-child h3 {
+                font-size: 1.2rem !important;
+            }
+
+            #career-content > div:last-child p {
+                font-size: 1rem !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-header {
+                background-color: rgba(5, 5, 5, 0.95) !important;
+            }
+
+            main {
+                padding-top: 200px !important;
+            }
+
+            #career-content h1 {
+                font-size: 1.8rem !important;
+            }
+
+            #career-content > p {
+                font-size: 0.95rem !important;
+            }
+
+            #career-content h2 {
+                font-size: 1.5rem !important;
+            }
+
+            .position-card {
+                padding: 1.5rem !important;
+            }
+
+            .position-card h3 {
+                font-size: 1.1rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            .position-button {
+                padding: 0.6rem 1.2rem !important;
+                font-size: 0.85rem !important;
+            }
+
+            #career-content > div:last-child h3 {
+                font-size: 1.1rem !important;
+            }
+
+            #career-content > div:last-child p {
+                font-size: 0.95rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Container -->
+    <div id="vanta-bg"></div>
+
+    <!-- Wrapper for all visible content to ensure correct layering -->
+    <div class="page-wrapper">
+
+        <header class="main-header">
+            <div class="header">
+                <div class="hamburger-container">
+                    <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo.png" alt="Raudranex Aerospace Logo">
+                    </a>
+                </div>            
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html">Product</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="career.html">Career</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main style="padding-top: 120px; padding-bottom: 4rem; min-height: 100vh;">
+            <section id="career-content" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+                <h1 style="font-size: 3.5rem; margin-bottom: 2rem; text-align: center; font-weight: 600;">Join Our Mission</h1>
+                <p style="font-size: 1.2rem; color: var(--color-text-secondary); max-width: 900px; margin: 0 auto 4rem; text-align: center; line-height: 1.8;">
+                    We are looking for passionate and talented individuals to join our team. If you are driven by innovation and want to make a significant impact on the future of space technology, we would love to hear from you.
+                </p>
+
+                <!-- Open Positions Section -->
+                <h2 style="font-size: 2.5rem; color: var(--color-accent); margin-bottom: 3rem; text-align: center;">Open Positions</h2>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+                    <!-- Position 1 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Plasma Physicist / Plasma Propulsion Engineer</h3>
+                        <a href="https://drive.google.com/file/d/1Gkq5-x5-K3eTjbrV_jYM1uv4zNpM1M8t/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 2 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Power electronics Engineer (PPU Development)</h3>
+                        <a href="https://drive.google.com/file/d/1OQ3x66KIu4v5OZJYVSCQdQdqhfaH0A-x/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 3 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Simulation Engineer</h3>
+                        <a href="https://drive.google.com/file/d/1SBPGEbTIUuAei5FPKEMeQvjIcJegA-Ff/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 4 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Design Engineer</h3>
+                        <a href="https://drive.google.com/file/d/116smanfkKBLXffzRgom74GjMwqUw6UaM/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 5 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Mechanical Design & Simulation Engineer</h3>
+                        <a href="https://drive.google.com/file/d/1kTw5DGjzEz81UMOWLOaKoDAs4RsCAcQ_/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 6 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Business Development Executive</h3>
+                        <a href="https://drive.google.com/file/d/1eFAqwvuhvU8hJvnpVmX1l7iPzZ27mYwS/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 7 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Admin Associate</h3>
+                        <a href="https://drive.google.com/file/d/1aCIS71XR-qBnZ8qy_aRJecEN-ijW3D8J/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 8 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">PPCU Intern / GET (Power Processing & Control Unit)</h3>
+                        <a href="https://drive.google.com/file/d/1rJ8E65qLOxMKEI1OG86pyBtgzVAldmoV/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 9 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Design Intern / GET (Mechanical & Aerospace Design)</h3>
+                        <a href="https://drive.google.com/file/d/1kMf3kOl7yWhGsJcgKitMT41uhJgdS9Ip/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 10 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Plasma Physics Intern</h3>
+                        <a href="https://drive.google.com/file/d/1-SkbykQ4Un7rVXZXx9ucu7-xlB4Dr6FR/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 11 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Simulations Intern / GET (CFD, FEA & Multiphysics)</h3>
+                        <a href="https://drive.google.com/file/d/1HTK2v9Gxz3Li7mySypYxYcBxYZl9_TTA/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 12 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">RF Power Systems Intern / GET</h3>
+                        <a href="https://drive.google.com/file/d/14igcEIReOOqgkdS_mmmAERmru2SFzXRI/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 13 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Legal Compliance Intern</h3>
+                        <a href="https://drive.google.com/file/d/1PiHcup7x3Bi0qGvsqnfS7A10-u3i64In/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 14 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Business Development Intern</h3>
+                        <a href="https://drive.google.com/file/d/1WBVWrUwn-ZAY3M3koxHy2b0-gLEUy_XS/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 15 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">Admin Associate Intern</h3>
+                        <a href="https://drive.google.com/file/d/12cqyPDqCmXVCtLC-y2KKJDtzagtorjdF/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+
+                    <!-- Position 16 -->
+                    <div class="position-card" style="padding: 2rem; background: rgba(0, 0, 0, 0.75); border-radius: 8px; border: 1px solid var(--color-grid); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-size: 1.3rem; color: var(--color-text-primary); margin-bottom: 1rem;">3D Graphics designing intern</h3>
+                        <a href="https://drive.google.com/file/d/1SCCjx_AXh6Ii6SaLGQWePKRTQjR5DZ2Q/view?usp=sharing" target="_blank" class="position-button" style="display: inline-block; padding: 0.5rem 1.5rem; background: #333333; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 0.9rem; transition: background 0.3s ease;">Know More</a>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div style="max-width: 900px; margin: 0 auto; padding: 2rem; background: rgba(255, 219, 187, 0.1); border-radius: 8px; border: 1px solid var(--color-accent);">
+                    <h3 style="color: var(--color-text-primary); margin-bottom: 1rem; font-size: 1.3rem; text-align: center;">Interested in Joining Us?</h3>
+                    <p style="color: var(--color-text-primary); line-height: 1.8; text-align: center;">
+                        Apply through <a href="https://forms.gle/mZBCg88SzzstAh5j9" style="color: var(--color-accent); text-decoration: underline;">https://forms.gle/mZBCg88SzzstAh5j9</a>
+                        <p style="color: var(--color-text-primary); line-height: 1.8; text-align: center;">
+                        Not able to find a suitable position, Send your resume and cover letter to <a href="mailto:careers@raudranex.space" style="color: var(--color-accent); text-decoration: underline;">careers@raudranex.space</a>
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.png" alt="Raudranex Space Technologies">
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <div class="footer-section">
+                        <h3>HEADQUARTERS</h3>
+                        <p>
+                            Innovation Valley, IT SEZ, Wing 3, Hill #3,<br>
+                            Startup Village, Pedda Rushikonda,<br>
+                            Madhurawada, Visakhapatnam,<br>
+                            Andhra Pradesh-530045
+                        </p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>OPERATIONAL FACILITY</h3>
+                        <p>
+                            <1st Floor MR BRIDGE,<br> -->
+                            Malla Reddy (MR)<br>
+                            Deemed to be University,<br>
+                            Maisammaguda, Medchal - Malkajgiri,<br>                            
+                            Telangana,India - 500100
+                        </p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>CONTACT</h3>
+                        <a href="mailto:info@raudranex.space">info@raudranex.space</a>
+                        <a href="mailto:careers@raudranex.space">careers@raudranex.space</a>
+                    </div>
+                    <div class="footer-section">
+                        <h3>FOLLOW US</h3>
+                        <div class="social-links">
+                            <a href="https://x.com/raudranexspace?s=20" target="_blank" rel="noopener" aria-label="X (Twitter)">𝕏</a>
+                            <a href="https://www.instagram.com/raudranex.space/" target="_blank" rel="noopener" aria-label="Instagram">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/company/raudranex-space/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Raudranex Space Technologies. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
